@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="validationApp">
+  <head>
+    <title>Bizinfosystems.in - Sign In</title>
+    <meta name="description" content="Whether you are looking for a business, wanting to buy or sell a business, or needing to submit a press release, Business directory offers several business related services to help promote your business" />
+      <meta name="keywords" content="india Business directory, indian Suppliers directory, business directory in india, indian wholesalers, indian Manufacturers directory, online indian Exporters, indian business portal, indian buyers marketplace, indian sellers, indian distributors, buyers from india, buyers in india, indian trade portal, indian service providers, Business directory india" />
+      <meta name="author" content="Business Information Systems">
+
+      <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+      <link rel="manifest" href="favicon/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+      <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap -->
+
+    <!-- Angular JS -->
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/custom_js.js"></script>
+    <!-- Angular JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.7.0/angular-messages.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script>
+
+    <!-- Disable Cut Copy Right click -->
+    
+    <!-- Disable Cut Copy Right click -->
+  </head>
+  <body class="sign_in" ng-controller="mainController"> 
+      <div class="col-md-4">&nbsp;</div>
+      <div class="col-md-4 registration">
+        <div class="col-md-12 box_cls_1">
+          <center class="frm_logo">
+            <img src="http://www.bizinfosystems.in/assets/images/company-logo.png" alt="" class="img-responsive" /><br /><b>Rethink the way you connect</b>
+          </center>
+            <h2>Sign In</h2>
+            <form name="myForm" ng-submit="onSubmitLogin()">
+              <div class="form-group">
+                  <label for="mobile">Mobile <span class="req">*</span></label>
+                  <input type="text" name="mobile" id="mobile" ng-model="mobile" maxlength="10" class="form-control" Placeholder="Mobile No." ng-required="true" oninvalid="this.setCustomValidity('Enter your Mobile no. here')" oninput="setCustomValidity('')" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" />
+
+
+                  <div ng-messages="myForm.mobile.$error">
+                    <div ng-message="required" class="error_form">This field is required</div>
+                    <div ng-message="pattern" class="error_form">Must be a valid 10 digit phone number</div>
+                  </div>
+
+                </div>
+              <div class="form-group"><button type="submit" class="btn btn-danger btn_cls" ng-disabled="isDisabled">Login</button>&nbsp;&nbsp;<a href="signup.html">New User Sign Up here</a></div>
+            </form>
+        </div> 
+
+        <div class="col-md-12"><center class="copytight">Developed By <a href="http://www.bizinfosystems.in" target="_blank">Business Information Systems</a></center> </div>      
+      </div>
+      <div class="col-md-4">&nbsp;</div>
+      <div id = "ErrmSG">
+         <div class = "message">This is a warning message.</div>
+         <button class = "yes">OK</button>
+      </div>
+      <div id = "mSG">
+         <div class = "message">This is a warning message.</div>
+         <button class = "yes">OK</button>
+      </div>
+      <div id = "LoginmSG">
+         <div class = "message">This is a warning message.</div>
+         <button class = "yes">OK</button>
+      </div>
+      <div id = "GeneralAlert">
+         <div class = "message">This is a warning message.</div>
+         <button class = "yes">OK</button>
+      </div>
+  </body>
+</html>

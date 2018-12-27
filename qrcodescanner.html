@@ -1,0 +1,111 @@
+<html ng-app="validationApp">
+  <head>
+    <title>Bizinfosystems.in - QR code Scanner</title>
+    <meta name="description" content="Whether you are looking for a business, wanting to buy or sell a business, or needing to submit a press release, Business directory offers several business related services to help promote your business" />
+      <meta name="keywords" content="india Business directory, indian Suppliers directory, business directory in india, indian wholesalers, indian Manufacturers directory, online indian Exporters, indian business portal, indian buyers marketplace, indian sellers, indian distributors, buyers from india, buyers in india, indian trade portal, indian service providers, Business directory india" />
+      <meta name="author" content="Business Information Systems">
+
+      <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+      <link rel="manifest" href="favicon/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+
+
+    
+    <script type="text/javascript" src="js/adapter.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/instascan.min.js"></script>
+    
+
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap -->
+
+    <!-- Angular JS -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/custom_js.js"></script>
+    <!-- Angular JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.7.0/angular-messages.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script>
+
+    <!-- Disable Cut Copy Right click -->
+    
+    <!-- Disable Cut Copy Right click -->
+
+  </head>
+  <body ng-controller="mainControllerCamera">    
+    <div id="app">      
+      <div class="col-md-2">&nbsp;</div>
+        <div class="col-md-8">
+          <div class="col-md-12">
+            <div class="com_info_box"><center class="com_logo"><img src="http://www.bizinfosystems.in/assets/images/company-logo.png" alt="" class="img-responsive" /><br /><b>Rethink the way you connect</b></center></div>
+          </div>
+          <div class="col-md-12">
+            <div class="login_details">
+              You are login with mobile <span ng-bind="login_details"></span>&nbsp;/&nbsp;<a href="#" ng-click="logout()">Logout</a><div class="clear"></div><a href="qrcodescanner.html">QR code Scanner</a>&nbsp;/&nbsp;<a href="whatsapp.html">Whatsapp Message</a>&nbsp;/&nbsp;<a href="my_vcard.html">My Visiting Cards Folder</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+          <div class="col-md-12">
+
+            <div class="sidebar">
+              <section class="cameras">
+                  <h2>Cameras</h2>
+                  <ul>
+                    <li v-if="cameras.length === 0" class="empty">No cameras found</li>
+                    <li v-for="camera in cameras">
+                      <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
+                      <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+                        <a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
+                      </span>
+                    </li>
+                  </ul>
+                </section>
+                <div class="clear"></div>
+                <section class="scans">
+                  <h2>Scans</h2>
+                  <ul v-if="scans.length === 0">
+                    <li class="empty">No scans yet</li>
+                  </ul>
+                  <transition-group name="scans" tag="ul">
+                    <li v-for="scan in scans" :key="scan.date" :title="scan.content" ><a :href="scan.content" target="_blank" class="cls_link">{{ scan.content }}</a></li>
+                  </transition-group>
+                </section>
+              </div>
+          </div>
+          <div class="clear"></div>
+          <div class="col-md-12">            
+              <div class="preview-container">
+                <video id="preview"></video>
+              </div>
+          </div> 
+          <div class="col-md-12"><center class="copytight">Developed By <a href="http://www.bizinfosystems.in" target="_blank">Business Information Systems</a></center> </div>         
+        </div>
+      <div class="col-md-2">&nbsp;</div>
+
+    </div>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
